@@ -52,21 +52,21 @@ export type Category = (typeof CATEGORIES)[number]
 
 export const componentList: ComponentMeta[] = [
   // 폼 요소
-  {
-    slug: 'button',
-    name: '버튼',
-    description: '다양한 변형과 크기를 제공하는 클릭 가능한 버튼 컴포넌트.',
-    category: '폼 요소',
-    importCode: `import { Button } from '@/components/ui/button'`,
-    usageCode: `<Button>기본 버튼</Button>
-<Button variant="secondary">보조 버튼</Button>
-<Button variant="outline">외곽선 버튼</Button>
-<Button variant="ghost">고스트 버튼</Button>
-<Button variant="destructive">삭제 버튼</Button>
-<Button size="sm">작은 버튼</Button>
-<Button size="lg">큰 버튼</Button>
-<Button disabled>비활성 버튼</Button>`,
-  },
+//   {
+//     slug: 'button',
+//     name: '버튼',
+//     description: '다양한 변형과 크기를 제공하는 클릭 가능한 버튼 컴포넌트.',
+//     category: '폼 요소',
+//     importCode: `import { Button } from '@/components/ui/button'`,
+//     usageCode: `<Button>기본 버튼</Button>
+// <Button variant="secondary">보조 버튼</Button>
+// <Button variant="outline">외곽선 버튼</Button>
+// <Button variant="ghost">고스트 버튼</Button>
+// <Button variant="destructive">삭제 버튼</Button>
+// <Button size="sm">작은 버튼</Button>
+// <Button size="lg">큰 버튼</Button>
+// <Button disabled>비활성 버튼</Button>`,
+//   },
   {
     slug: 'input',
     name: '입력창',
