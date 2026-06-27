@@ -67,17 +67,17 @@ export const componentList: ComponentMeta[] = [
 // <Button size="lg">큰 버튼</Button>
 // <Button disabled>비활성 버튼</Button>`,
 //   },
-  {
-    slug: 'input',
-    name: '입력창',
-    description: '텍스트 입력을 위한 기본 input 컴포넌트.',
-    category: '폼 요소',
-    importCode: `import { Input } from '@/components/ui/input'`,
-    usageCode: `<Input placeholder="텍스트를 입력하세요" />
-<Input type="email" placeholder="이메일" />
-<Input type="password" placeholder="비밀번호" />
-<Input disabled placeholder="비활성 상태" />`,
-  },
+//   {
+//     slug: 'input',
+//     name: '입력창',
+//     description: '텍스트 입력을 위한 기본 input 컴포넌트.',
+//     category: '폼 요소',
+//     importCode: `import { Input } from '@/components/ui/input'`,
+//     usageCode: `<Input placeholder="텍스트를 입력하세요" />
+// <Input type="email" placeholder="이메일" />
+// <Input type="password" placeholder="비밀번호" />
+// <Input disabled placeholder="비활성 상태" />`,
+//   },
   {
     slug: 'textarea',
     name: '텍스트 영역',
