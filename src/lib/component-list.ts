@@ -143,17 +143,17 @@ import { Label } from '@/components/ui/label'`,
 </Select>`,
   },
   // 표시
-  {
-    slug: 'badge',
-    name: '배지',
-    description: '상태나 카테고리를 표시하는 소형 레이블 컴포넌트.',
-    category: '표시',
-    importCode: `import { Badge } from '@/components/ui/badge'`,
-    usageCode: `<Badge>기본</Badge>
-<Badge variant="secondary">보조</Badge>
-<Badge variant="outline">외곽선</Badge>
-<Badge variant="destructive">오류</Badge>`,
-  },
+//   {
+//     slug: 'badge',
+//     name: '배지',
+//     description: '상태나 카테고리를 표시하는 소형 레이블 컴포넌트.',
+//     category: '표시',
+//     importCode: `import { Badge } from '@/components/ui/badge'`,
+//     usageCode: `<Badge>기본</Badge>
+// <Badge variant="secondary">보조</Badge>
+// <Badge variant="outline">외곽선</Badge>
+// <Badge variant="destructive">오류</Badge>`,
+//   },
   {
     slug: 'avatar',
     name: '아바타',
