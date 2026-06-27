@@ -78,15 +78,15 @@ export const componentList: ComponentMeta[] = [
 // <Input type="password" placeholder="비밀번호" />
 // <Input disabled placeholder="비활성 상태" />`,
 //   },
-  {
-    slug: 'textarea',
-    name: '텍스트 영역',
-    description: '여러 줄 텍스트 입력을 위한 textarea 컴포넌트.',
-    category: '폼 요소',
-    importCode: `import { Textarea } from '@/components/ui/textarea'`,
-    usageCode: `<Textarea placeholder="메시지를 입력하세요" />
-<Textarea disabled placeholder="비활성 상태" rows={4} />`,
-  },
+//   {
+//     slug: 'textarea',
+//     name: '텍스트 영역',
+//     description: '여러 줄 텍스트 입력을 위한 textarea 컴포넌트.',
+//     category: '폼 요소',
+//     importCode: `import { Textarea } from '@/components/ui/textarea'`,
+//     usageCode: `<Textarea placeholder="메시지를 입력하세요" />
+// <Textarea disabled placeholder="비활성 상태" rows={4} />`,
+//   },
   {
     slug: 'checkbox',
     name: '체크박스',
