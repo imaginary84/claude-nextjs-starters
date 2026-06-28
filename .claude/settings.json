@@ -2,7 +2,7 @@
   "plansDirectory": ".claude/plans",
   "statusLine": {
     "type": "command",
-    "command": "bash .claude/script/statusline.sh"
+    "command": "node .claude/script/statusline.js"
   },
   "hooks": {
     "Notification": [
