@@ -61,6 +61,9 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-1">
+          <Button variant="ghost" size="sm" className="hidden md:inline-flex" asChild>
+            <Link href="/login">로그인</Link>
+          </Button>
           <ThemeToggle />
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
@@ -81,7 +84,14 @@ export function Navbar() {
                   NextKit
                 </SheetTitle>
               </SheetHeader>
-              <nav className="flex flex-col gap-0.5 mt-6">
+              <div className="mt-0 px-3">
+                <Button variant="outline" className="w-1/2" asChild>
+                  <Link href="/login" onClick={() => setMobileOpen(false)}>
+                    로그인
+                  </Link>
+                </Button>
+              </div>
+              <nav className="flex flex-col gap-0.5 mt-0">
                 {navLinks.map(({ href, label }) => (
                   <Link
                     key={href}
