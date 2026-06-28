@@ -51,8 +51,11 @@ process.stdin.on('end', () => {
     ];
   } else if (eventType === 'Stop') {
     if (data.stop_hook_active === true) { safeExit(); return; }
+    const msg = data.last_assistant_message || '(메시지 없음)';
     blocks = [
       { type: 'header', text: { type: 'plain_text', text: '✅ Claude Code 작업 완료', emoji: true } },
+      { type: 'section', text: { type: 'mrkdwn', text: msg } },
+      { type: 'divider' },
       { type: 'context', elements: [{ type: 'mrkdwn', text: 'Session: `' + (data.session_id || 'unknown').substring(0, 8) + '` | ' + new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }) }] }
     ];
   }
