@@ -1,5 +1,9 @@
 {
   "plansDirectory": ".claude/plans",
+  "statusLine": {
+    "type": "command",
+    "command": "bash .claude/script/statusline.sh"
+  },
   "hooks": {
     "Notification": [
       {
