@@ -1,3 +1,25 @@
 {
-  "plansDirectory": ".claude/plans"  
+  "plansDirectory": ".claude/plans",
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/slack-notify.js Notification"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/scripts/slack-notify.js Stop"
+          }
+        ]
+      }
+    ]
+  }
 }
