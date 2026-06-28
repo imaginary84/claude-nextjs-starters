@@ -111,6 +111,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { Info, AlertCircle } from 'lucide-react'
+import useSWR from 'swr'
 
 function ButtonDemo() {
   return (
@@ -629,9 +630,11 @@ function FormDemo() {
 
 // ─── API 예제 ────────────────────────────────────────────────────────────────
 
-import useSWR from 'swr'
-
-const fetcher = (url: string) => fetch(url).then((r) => r.json())
+const fetcher = (url: string) =>
+  fetch(url).then((r) => {
+    if (!r.ok) throw new Error(r.statusText)
+    return r.json()
+  })
 
 type User = { id: number; name: string; email: string; phone: string }
 type Post = { id: number; title: string; body: string }
@@ -697,7 +700,7 @@ function FetchUsersDemo() {
 }
 
 function FetchPostsDemo() {
-  const { data: posts, isLoading, mutate } = useSWR<Post[]>(
+  const { data: posts, isLoading, error, mutate } = useSWR<Post[]>(
     'https://jsonplaceholder.typicode.com/posts?_limit=10',
     fetcher
   )
@@ -706,6 +709,15 @@ function FetchPostsDemo() {
   const filtered = posts?.filter((p) =>
     p.title.toLowerCase().includes(query.toLowerCase())
   ) ?? []
+
+  if (error) return (
+    <div className="rounded-lg border border-destructive/30 bg-destructive/5 p-4 text-center space-y-2">
+      <p className="text-sm text-destructive">데이터를 불러오지 못했습니다.</p>
+      <Button variant="outline" size="sm" onClick={() => mutate()}>
+        다시 시도
+      </Button>
+    </div>
+  )
 
   return (
     <div className="w-full max-w-md space-y-3">

@@ -10,7 +10,7 @@ export function useTheme() {
   return {
     theme: (theme ?? 'system') as Theme,
     setTheme: (t: Theme) => setTheme(t),
-    resolvedTheme: (resolvedTheme ?? 'light') as 'light' | 'dark',
+    resolvedTheme: resolvedTheme as 'light' | 'dark' | undefined,
     isDark: resolvedTheme === 'dark',
     systemTheme: systemTheme as 'light' | 'dark' | undefined,
   }

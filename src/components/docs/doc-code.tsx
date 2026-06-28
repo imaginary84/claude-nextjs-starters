@@ -14,9 +14,13 @@ export function DocCode({ code, language = 'bash', className }: DocCodeProps) {
   const [copied, setCopied] = useState(false)
 
   const copy = async () => {
-    await navigator.clipboard.writeText(code)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
+    try {
+      await navigator.clipboard.writeText(code)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      // HTTP 환경이나 권한 거부 시 조용히 실패
+    }
   }
 
   return (

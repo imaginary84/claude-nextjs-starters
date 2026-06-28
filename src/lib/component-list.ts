@@ -9,7 +9,7 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 
-export const categoryColors: Record<string, string> = {
+export const categoryColors: Record<Category, string> = {
   '폼 요소': 'bg-blue-500/10 text-blue-600 dark:text-blue-400',
   '표시': 'bg-purple-500/10 text-purple-600 dark:text-purple-400',
   '피드백': 'bg-amber-500/10 text-amber-600 dark:text-amber-400',
@@ -19,7 +19,7 @@ export const categoryColors: Record<string, string> = {
   'API 예제': 'bg-sky-500/10 text-sky-600 dark:text-sky-400',
 }
 
-export const categoryIcons: Record<string, LucideIcon> = {
+export const categoryIcons: Record<Category, LucideIcon> = {
   '폼 요소': PenLine,
   '표시': Eye,
   '피드백': Bell,
@@ -33,7 +33,7 @@ export interface ComponentMeta {
   slug: string
   name: string
   description: string
-  category: string
+  category: Category
   importCode: string
   usageCode: string
 }
@@ -226,119 +226,119 @@ import { Input } from '@/components/ui/input'`,
 </div>`,
   },
   // 피드백
-  {
-    slug: 'alert',
-    name: '알림',
-    description: '중요한 메시지를 표시하는 알림 컴포넌트.',
-    category: '피드백',
-    importCode: `import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Info, AlertCircle } from 'lucide-react'`,
-    usageCode: `<Alert>
-  <Info className="size-4" />
-  <AlertTitle>안내</AlertTitle>
-  <AlertDescription>
-    이 작업을 계속 진행하시겠습니까?
-  </AlertDescription>
-</Alert>
+//   {
+//     slug: 'alert',
+//     name: '알림',
+//     description: '중요한 메시지를 표시하는 알림 컴포넌트.',
+//     category: '피드백',
+//     importCode: `import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+// import { Info, AlertCircle } from 'lucide-react'`,
+//     usageCode: `<Alert>
+//   <Info className="size-4" />
+//   <AlertTitle>안내</AlertTitle>
+//   <AlertDescription>
+//     이 작업을 계속 진행하시겠습니까?
+//   </AlertDescription>
+// </Alert>
 
-<Alert variant="destructive">
-  <AlertCircle className="size-4" />
-  <AlertTitle>오류</AlertTitle>
-  <AlertDescription>문제가 발생했습니다.</AlertDescription>
-</Alert>`,
-  },
-  {
-    slug: 'alert-dialog',
-    name: '경고 대화상자',
-    description: '중요한 작업 전 사용자 확인을 요청하는 모달 다이얼로그.',
-    category: '피드백',
-    importCode: `import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from '@/components/ui/alert-dialog'`,
-    usageCode: `<AlertDialog>
-  <AlertDialogTrigger asChild>
-    <Button variant="destructive">계정 삭제</Button>
-  </AlertDialogTrigger>
-  <AlertDialogContent>
-    <AlertDialogHeader>
-      <AlertDialogTitle>정말 삭제하시겠습니까?</AlertDialogTitle>
-      <AlertDialogDescription>
-        이 작업은 되돌릴 수 없습니다. 계정의 모든 데이터가 삭제됩니다.
-      </AlertDialogDescription>
-    </AlertDialogHeader>
-    <AlertDialogFooter>
-      <AlertDialogCancel>취소</AlertDialogCancel>
-      <AlertDialogAction>삭제</AlertDialogAction>
-    </AlertDialogFooter>
-  </AlertDialogContent>
-</AlertDialog>`,
-  },
-  {
-    slug: 'skeleton',
-    name: '스켈레톤',
-    description: '콘텐츠 로딩 상태를 표시하는 플레이스홀더 컴포넌트.',
-    category: '피드백',
-    importCode: `import { Skeleton } from '@/components/ui/skeleton'`,
-    usageCode: `{/* 텍스트 로딩 */}
-<div className="space-y-2">
-  <Skeleton className="h-4 w-full" />
-  <Skeleton className="h-4 w-3/4" />
-  <Skeleton className="h-4 w-1/2" />
-</div>
+// <Alert variant="destructive">
+//   <AlertCircle className="size-4" />
+//   <AlertTitle>오류</AlertTitle>
+//   <AlertDescription>문제가 발생했습니다.</AlertDescription>
+// </Alert>`,
+//   },
+//   {
+//     slug: 'alert-dialog',
+//     name: '경고 대화상자',
+//     description: '중요한 작업 전 사용자 확인을 요청하는 모달 다이얼로그.',
+//     category: '피드백',
+//     importCode: `import {
+//   AlertDialog,
+//   AlertDialogAction,
+//   AlertDialogCancel,
+//   AlertDialogContent,
+//   AlertDialogDescription,
+//   AlertDialogFooter,
+//   AlertDialogHeader,
+//   AlertDialogTitle,
+//   AlertDialogTrigger,
+// } from '@/components/ui/alert-dialog'`,
+//     usageCode: `<AlertDialog>
+//   <AlertDialogTrigger asChild>
+//     <Button variant="destructive">계정 삭제</Button>
+//   </AlertDialogTrigger>
+//   <AlertDialogContent>
+//     <AlertDialogHeader>
+//       <AlertDialogTitle>정말 삭제하시겠습니까?</AlertDialogTitle>
+//       <AlertDialogDescription>
+//         이 작업은 되돌릴 수 없습니다. 계정의 모든 데이터가 삭제됩니다.
+//       </AlertDialogDescription>
+//     </AlertDialogHeader>
+//     <AlertDialogFooter>
+//       <AlertDialogCancel>취소</AlertDialogCancel>
+//       <AlertDialogAction>삭제</AlertDialogAction>
+//     </AlertDialogFooter>
+//   </AlertDialogContent>
+// </AlertDialog>`,
+//   },
+//   {
+//     slug: 'skeleton',
+//     name: '스켈레톤',
+//     description: '콘텐츠 로딩 상태를 표시하는 플레이스홀더 컴포넌트.',
+//     category: '피드백',
+//     importCode: `import { Skeleton } from '@/components/ui/skeleton'`,
+//     usageCode: `{/* 텍스트 로딩 */}
+// <div className="space-y-2">
+//   <Skeleton className="h-4 w-full" />
+//   <Skeleton className="h-4 w-3/4" />
+//   <Skeleton className="h-4 w-1/2" />
+// </div>
 
-{/* 카드 로딩 */}
-<div className="flex items-center gap-3">
-  <Skeleton className="size-10 rounded-full" />
-  <div className="space-y-1.5 flex-1">
-    <Skeleton className="h-3 w-1/3" />
-    <Skeleton className="h-3 w-1/2" />
-  </div>
-</div>`,
-  },
-  {
-    slug: 'progress',
-    name: '진행률',
-    description: '작업 완료율을 시각적으로 표시하는 컴포넌트.',
-    category: '피드백',
-    importCode: `import { Progress } from '@/components/ui/progress'`,
-    usageCode: `<div className="space-y-3 w-64">
-  <Progress value={30} />
-  <Progress value={60} />
-  <Progress value={90} />
-</div>`,
-  },
-  {
-    slug: 'sonner',
-    name: '토스트',
-    description: '사용자에게 알림 메시지를 표시하는 토스트 컴포넌트.',
-    category: '피드백',
-    importCode: `import { toast } from 'sonner'
+// {/* 카드 로딩 */}
+// <div className="flex items-center gap-3">
+//   <Skeleton className="size-10 rounded-full" />
+//   <div className="space-y-1.5 flex-1">
+//     <Skeleton className="h-3 w-1/3" />
+//     <Skeleton className="h-3 w-1/2" />
+//   </div>
+// </div>`,
+//   },
+//   {
+//     slug: 'progress',
+//     name: '진행률',
+//     description: '작업 완료율을 시각적으로 표시하는 컴포넌트.',
+//     category: '피드백',
+//     importCode: `import { Progress } from '@/components/ui/progress'`,
+//     usageCode: `<div className="space-y-3 w-64">
+//   <Progress value={30} />
+//   <Progress value={60} />
+//   <Progress value={90} />
+// </div>`,
+//   },
+//   {
+//     slug: 'sonner',
+//     name: '토스트',
+//     description: '사용자에게 알림 메시지를 표시하는 토스트 컴포넌트.',
+//     category: '피드백',
+//     importCode: `import { toast } from 'sonner'
 
-// app/layout.tsx에 <Toaster /> 추가 필요:
-import { Toaster } from '@/components/ui/sonner'`,
-    usageCode: `// 기본 토스트
-toast('파일이 저장되었습니다.')
+// // app/layout.tsx에 <Toaster /> 추가 필요:
+// import { Toaster } from '@/components/ui/sonner'`,
+//     usageCode: `// 기본 토스트
+// toast('파일이 저장되었습니다.')
 
-// 성공
-toast.success('저장되었습니다.')
+// // 성공
+// toast.success('저장되었습니다.')
 
-// 오류
-toast.error('오류가 발생했습니다.')
+// // 오류
+// toast.error('오류가 발생했습니다.')
 
-// 경고
-toast.warning('저장 공간이 부족합니다.')
+// // 경고
+// toast.warning('저장 공간이 부족합니다.')
 
-// 로딩
-toast.loading('처리 중...')`,
-  },
+// // 로딩
+// toast.loading('처리 중...')`,
+//   },
   // 네비게이션
   {
     slug: 'tabs',
